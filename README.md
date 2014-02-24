@@ -1,4 +1,4 @@
-bluemix-node-hello
+bluemix-hello-node
 ================================================================================
 
 A "Hello World" server in node.js sample for Bluemix.
@@ -53,7 +53,7 @@ After installing, run the server using
 
 This should print the following to the console.
 
-    bluemix-node-hello: server starting on http://localhost:3000
+    bluemix-hello-node: server starting on http://localhost:3000
 
 If instead, you get something like the following, someone is already
 using the default port of 3000:
@@ -91,8 +91,8 @@ You should see the same content in the browser for every URL, which will be
 
 In the command/shell terminal, you will see the following output:
 
-    bluemix-node-hello: server starting on http://localhost:3000
-    bluemix-node-hello: request GET /any/url
+    bluemix-hello-node: server starting on http://localhost:3000
+    bluemix-hello-node: request GET /any/url
 
 
 
@@ -204,7 +204,7 @@ After running the `cf push` command above, you should see the following output:
     -----> Fetching IBM SDK for Node.js binaries
     -----> Vendoring node into slug
     -----> Installing dependencies with npm
-           npm WARN package.json bluemix-node-hello@ No repository field.
+           npm WARN package.json bluemix-hello-node@ No repository field.
            npm http GET https://registry.npmjs.org/express
     ... remaining npm messages elided ...
     -----> Building runtime environment
