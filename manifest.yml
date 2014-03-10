@@ -1,0 +1,22 @@
+---
+
+# this file is by `cf push` to determine the settings your your app
+
+applications:
+
+# we only have one app - bluemix-hello-node; this is the "name" of the app that
+# you will use in subsequent `cf` commands
+
+- name:    bluemix-hello-node
+
+# the indented values are settings for the app they are indented under
+
+  # this is the host name of your app; you'll access it like:
+  #    https://<host>.ng.bluemix.net/
+  # CHANGE THIS VALUE TO SOMETHING UNIQUE NAME ACROSS BLUEMIX!
+
+  host:    hello-jim
+
+  # amount of RAM we'll need.  Prolly could get by with less!
+
+  memory:  128M

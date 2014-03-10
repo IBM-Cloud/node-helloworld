@@ -1,7 +1,15 @@
 // Licensed under the Apache License. See footer for details.
 
+// Sometimes you want to see your environment variables.
+// While perhaps you don't want to do this in product, great while developing.
+
+// console.log("process.env: " + JSON.stringify(process.env, null, 4))
+
 // use node's http package
 var http = require("http")
+
+// use the express package
+var express = require("express")
 
 // read the `package.json` file for this package, so we can reference
 // the name property later
@@ -21,13 +29,26 @@ if (isNaN(port)) {
 // create the HTTP server
 var server = http.createServer()
 
+// create the express app
+var app = express()
+
+// have all requests handled by the onRequest function
+app.all("*", onRequest)
+
 // when an HTTP request is sent, respond with the "Hello, World" text
-server.on("request", onRequest)
+server.on("request", app)
 
 // start the server, writing a message once it's actually started
 server.listen(port, onListen)
 
 // all done! server should start listening and responding to requests!
+
+//------------------------------------------------------------------------------
+// when the server starts, log a message
+//------------------------------------------------------------------------------
+function onListen(request, response) {
+    log("server starting on http://localhost:" + port)
+}
 
 //------------------------------------------------------------------------------
 // when a request is sent to the server, respond with "Hello World" text
@@ -39,12 +60,6 @@ function onRequest(request, response) {
     response.end("Hello World\n")
 }
 
-//------------------------------------------------------------------------------
-// when the server starts, log a message
-//------------------------------------------------------------------------------
-function onListen(request, response) {
-    log("server starting on http://localhost:" + port)
-}
 
 //------------------------------------------------------------------------------
 // log a message with a common prefix of the package name

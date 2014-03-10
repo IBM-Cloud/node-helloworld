@@ -151,32 +151,37 @@ When complete, you should see the following:
 deploying to BlueMix
 --------------------------------------------------------------------------------
 
-For more information on the basics of pushing apps, see the Cloud Foundry docs:
+You can deploy an application to BlueMix with the `cf push` command.
 
-* *[Getting Started](http://docs.cloudfoundry.com/docs/dotcom/getting-started.html)*
-* *[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+Before doing that, though, please read through the `manifest.yml` file, and
+change the `host` value in that file to a unique name across BlueMix.  This
+file is used by the `cf push` command for values relating to the app you are
+pushing.
 
-Once you've built installed and locally run the Hello World server (as above),
-you can push the app to a Cloud Foundry site using
+The `name` of the app is `bluemix-hello-node`, and is also specified in the
+`manifest.yml` file. This is the name we will use to reference the app
+in subsequent `cf` commands.  This name needs to be unique within your
+BlueMix "org" and "space".  You are likely already running within your
+org, so you will likely be able to use this name as-is.
 
-    cf push hello-bob -m 128M
+For more information on organizations and spaces, see the Cloud Foundry docs:
 
-Just hit enter for all the prompts, taking the defaults.
+* *[Organizations and Spaces](http://docs.cloudfoundry.com/docs/using/managing-apps/orgs-and-spaces.html)*
 
-The `hello-bob` token in that command is
-used as the "name" of the app, to be used in future `cf` commands.  It will
-also be used as the subdomain of the host name for this app, which when
-added to the default domain for BlueMix will yield the complete hostname
-`hello-bob.ng.bluemix.net`
+After changing the `manifest.yml` file's `host` value, you can use the following
+command to have the application deployed to BlueMix:
 
-The reason `-bob` was added is that the hostnames in BlueMix are globally
-defined, and so
-two users won't be able to deploy the same named app within a Cloud Foundry
-site (not quite, but *it's complicated*).  So,
-**use a unique `<name>` suffix on `hello-<name>` for your app name**.
+    cf push
 
-The `-m 128M` option at the end of the command indicates the app should run in
-a virtual machine with 128 MB of memory available.  The default is 1 GB.
+If you didn't change the `manifest.yml` file's `host` value, you may see the
+following message:
+
+    Creating route hello-jim.ng.bluemix.net...
+    FAILED
+    Server error, status code: 400, error code: 210003,
+           message: The host is taken: hello-jim
+
+In the examples below, let's say you changed the `host` value to `hello-bob`.
 
 After running the `cf push` command above, you should see the following output:
 
@@ -246,9 +251,14 @@ When you're ready to delete the server, use the following command:
 
     cf delete hello-bob
 
+For more information on the basics of pushing apps, see the Cloud Foundry docs:
+
+* *[Getting Started](http://docs.cloudfoundry.com/docs/dotcom/getting-started.html)*
+* *[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
 
 
-files
+
+files in this repository
 --------------------------------------------------------------------------------
 
 `server.js`
@@ -279,7 +289,7 @@ This indicates the node modules you installed with `npm install` will **NOT** be
 uploaded to BlueMix.  When your app is "staged" (ie, built on BlueMix during
 `cf push`), an
 `npm install` will be run there to install the required modules.  By avoiding
-sending your node modules when you push your app, your app will be uploaded 
+sending your node modules when you push your app, your app will be uploaded
 quicker than
 if you **HAD** sent the modules.  But you can send the modules you have installed
 if you like; just delete the `.cfignore` file.
@@ -301,6 +311,19 @@ for discussion.
 
 The open source license for this sample; in this case, it's licensed under
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+---
+
+`manifest.yml`
+
+This file contains information that's used when you `cf push` the application.
+
+You should edit this file and change the `host` value to a unique name across
+BlueMix.
+
+See the Cloud Foundry doc
+*[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+for more information.
 
 ---
 
@@ -335,11 +358,8 @@ In this case, the file has a single line:
 This indicates that the command `node server` should be run when the app is
 started.
 
-
-
 ---
 
 `README.md`
 
 This file!
-
