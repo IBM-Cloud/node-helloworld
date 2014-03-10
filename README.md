@@ -130,9 +130,9 @@ example:
     $ cf login
     API endpoint: https://api.ng.bluemix.net
 
-    Username> <my-IBM-ID>
+    Username> [enter your IBM ID here]
 
-    Password> <enter your password here>
+    Password> [enter your IBM ID password here]
     Authenticating...
     OK
 
@@ -142,8 +142,8 @@ which should be your IBM ID userid and `dev`, respectively.
 When complete, you should see the following:
 
     API endpoint: https://api.ng.bluemix.net (API version: 2.0.0)
-    User:         <my-IBM-ID>
-    Org:          <my-IBM-ID>
+    User:         [your IBM ID]
+    Org:          [your IBM ID]
     Space:        dev
 
 
@@ -154,34 +154,25 @@ deploying to BlueMix
 You can deploy an application to BlueMix with the `cf push` command.
 
 Before doing that, though, please read through the `manifest.yml` file, and
-change the `host` value in that file to a unique name across BlueMix.  This
-file is used by the `cf push` command for values relating to the app you are
+change the `host` and `name` values in that file to a unique name across BlueMix.
+This file is used by the `cf push` command for values relating to the app you are
 pushing.
 
-The `name` of the app is `bluemix-hello-node`, and is also specified in the
-`manifest.yml` file. This is the name we will use to reference the app
-in subsequent `cf` commands.  This name needs to be unique within your
-BlueMix "org" and "space".  You are likely already running within your
-org, so you will likely be able to use this name as-is.
-
-For more information on organizations and spaces, see the Cloud Foundry docs:
-
-* *[Organizations and Spaces](http://docs.cloudfoundry.com/docs/using/managing-apps/orgs-and-spaces.html)*
-
-After changing the `manifest.yml` file's `host` value, you can use the following
-command to have the application deployed to BlueMix:
+After changing the `manifest.yml` file's `host` and `name` values,
+you can use the following command to have the application deployed to BlueMix:
 
     cf push
 
-If you didn't change the `manifest.yml` file's `host` value, you may see the
-following message:
+If you didn't change the `manifest.yml` file's `host` and `name` values,
+you may see the following message:
 
     Creating route hello-jim.ng.bluemix.net...
     FAILED
     Server error, status code: 400, error code: 210003,
            message: The host is taken: hello-jim
 
-In the examples below, let's say you changed the `host` value to `hello-bob`.
+In the examples below, let's say you changed the `host` and `name` values to
+`hello-bob`.
 
 After running the `cf push` command above, you should see the following output:
 
@@ -241,11 +232,15 @@ At this point, your application is running and you can visit it on the urls
 If you'd like to continue to play with the server by changing the code, use
 the following command when you are ready to push the new version to BlueMix:
 
-    cf push hello-bob
+    cf push
 
 You can stop the server at any time, by using the following command:
 
     cf stop hello-bob
+
+and then start it later, by using the following command:
+
+    cf start hello-bob
 
 When you're ready to delete the server, use the following command:
 

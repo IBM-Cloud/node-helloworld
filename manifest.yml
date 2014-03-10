@@ -4,10 +4,11 @@
 
 applications:
 
-# we only have one app - bluemix-hello-node; this is the "name" of the app that
-# you will use in subsequent `cf` commands
+# we only have one app - the "name" value is the is is the name of the app that
+# you will use in `cf` commands; we'll use the same values for the
+# `name` and `host`, just to keep things simple, but they can be different.
 
-- name:    bluemix-hello-node
+- name:    hello-jim
 
 # the indented values are settings for the app they are indented under
 
