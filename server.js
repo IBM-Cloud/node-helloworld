@@ -8,6 +8,9 @@
 // use node's http package
 var http = require("http")
 
+// use the cf-env package
+var cfEnv = require("cf-env")
+
 // use the express package
 var express = require("express")
 
@@ -15,16 +18,8 @@ var express = require("express")
 // the name property later
 var pkg = require("./package.json")
 
-// check the PORT environment variable, use "3000" if not set
-var portString = process.env.PORT || "3000"
-
-// parse the PORT environment variable into an integer
-var port = parseInt(portString, 10)
-
-// if it wasn't a valid integer, exit with a message
-if (isNaN(port)) {
-    logError("the PORT environment variable isn't a valid number: '" + portString + "'")
-}
+// get the core cf-env bits
+var cfCore = cfEnv.getCore()
 
 // create the HTTP server
 var server = http.createServer()
@@ -39,7 +34,7 @@ app.all("*", onRequest)
 server.on("request", app)
 
 // start the server, writing a message once it's actually started
-server.listen(port, onListen)
+server.listen(cfCore.port, cfCore.bind, onListen)
 
 // all done! server should start listening and responding to requests!
 
@@ -47,7 +42,7 @@ server.listen(port, onListen)
 // when the server starts, log a message
 //------------------------------------------------------------------------------
 function onListen(request, response) {
-    log("server starting on http://localhost:" + port)
+    log("server starting on " + cfCore.url)
 }
 
 //------------------------------------------------------------------------------
@@ -59,7 +54,6 @@ function onRequest(request, response) {
     response.writeHead(200, {"Content-Type": "text/plain"})
     response.end("Hello World\n")
 }
-
 
 //------------------------------------------------------------------------------
 // log a message with a common prefix of the package name
