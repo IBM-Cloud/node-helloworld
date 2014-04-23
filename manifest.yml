@@ -4,19 +4,16 @@
 
 applications:
 
-# we only have one app - the "name" value is the is is the name of the app that
-# you will use in `cf` commands; we'll use the same values for the
-# `name` and `host`, just to keep things simple, but they can be different.
+# the name of the app that you will use in `cf` commands
 
-- name:    hello-jim
+- name:    hello-node
 
 # the indented values are settings for the app they are indented under
 
-  # this is the host name of your app; you'll access it like:
-  #    https://<host>.ng.bluemix.net/
-  # CHANGE THIS VALUE TO SOMETHING UNIQUE NAME ACROSS BLUEMIX!
+  # this is the host name of your app
+  # using the random-word symbol will assign a unique hostname for this app
 
-  host:    hello-jim
+  host:    hello-node-${random-word}
 
   # amount of RAM we'll need.  Prolly could get by with less!
 

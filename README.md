@@ -153,42 +153,29 @@ deploying to BlueMix
 
 You can deploy an application to BlueMix with the `cf push` command.
 
-Before doing that, though, please read through the `manifest.yml` file, and
-change the `host` and `name` values in that file to a unique name across BlueMix.
-This file is used by the `cf push` command for values relating to the app you are
-pushing.
-
-After changing the `manifest.yml` file's `host` and `name` values,
-you can use the following command to have the application deployed to BlueMix:
+Use the following command to have the application deployed to BlueMix:
 
     cf push
 
-If you didn't change the `manifest.yml` file's `host` and `name` values,
-you may see the following message:
-
-    Creating route hello-jim.ng.bluemix.net...
-    FAILED
-    Server error, status code: 400, error code: 210003,
-           message: The host is taken: hello-jim
-
-In the examples below, let's say you changed the `host` and `name` values to
-`hello-bob`.
+Note that in the documentation below, the string `${random-word}` is a
+place-holder for a random string that BlueMix will create, so that you
+will have a unique hostname running within BlueMix.
 
 After running the `cf push` command above, you should see the following output:
 
-    Creating app hello-bob in org <my-IBM-ID> / space dev as <my-IBM-ID>...
+    Creating app hello-node in org <my-IBM-id> / space dev as <my-IBM-id>...
     OK
 
-    Using route hello-bob.ng.bluemix.net
-    Binding hello-bob.ng.bluemix.net to hello-bob...
+    Using route hello-node-${random-word}.ng.bluemix.net
+    Binding hello-node-${random-word}.ng.bluemix.net to hello-node...
     OK
 
-    Uploading hello-bob...
+    Uploading hello-node...
     Uploading from: /Users/pmuellr/Projects/bluemix/bluemix-hello-node
     24.9K, 5 files
     OK
 
-    Starting app hello-bob in org <my-IBM-ID> / space dev as <my-IBM-ID>...
+    Starting app hello-node in org <my-IBM-id> / space dev as <my-IBM-id>...
     OK
     -----> Downloaded app package (12K)
     -----> ibm-buildpack-nodejs 2013-01-16
@@ -213,21 +200,21 @@ After running the `cf push` command above, you should see the following output:
 
     App started
 
-    Showing health and status for app hello-bob in org <my-IBM-ID> / space dev as <my-IBM-ID>...
+    Showing health and status for app hello-node in org <my-IBM-id> / space dev as <my-IBM-id>...
     OK
 
     requested state: started
     instances: 1/1
     usage: 128M x 1 instances
-    urls: hello-bob.ng.bluemix.net
+    urls: hello-node-${random-word}.ng.bluemix.net
 
          state     since                    cpu    memory         disk
     #0   running   2014-02-24 11:01:17 AM   0.0%   6.6M of 128M   34.1M of 1G
 
 At this point, your application is running and you can visit it on the urls
 
-    http://hello-bob.ng.bluemix.net
-    https://hello-bob.ng.bluemix.net
+    http://hello-node-${random-word}.ng.bluemix.net
+    https://hello-node${random-word}.ng.bluemix.net
 
 If you'd like to continue to play with the server by changing the code, use
 the following command when you are ready to push the new version to BlueMix:
@@ -236,15 +223,15 @@ the following command when you are ready to push the new version to BlueMix:
 
 You can stop the server at any time, by using the following command:
 
-    cf stop hello-bob
+    cf stop hello-node
 
 and then start it later, by using the following command:
 
-    cf start hello-bob
+    cf start hello-node
 
 When you're ready to delete the server, use the following command:
 
-    cf delete hello-bob
+    cf delete hello-node
 
 For more information on the basics of pushing apps, see the Cloud Foundry docs:
 
@@ -312,9 +299,6 @@ The open source license for this sample; in this case, it's licensed under
 `manifest.yml`
 
 This file contains information that's used when you `cf push` the application.
-
-You should edit this file and change the `host` value to a unique name across
-BlueMix.
 
 See the Cloud Foundry doc
 *[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
