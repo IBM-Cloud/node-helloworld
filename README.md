@@ -4,7 +4,7 @@ bluemix-hello-node
 A "Hello World" server in node.js sample for Bluemix.
 
 This repo contains a complete sample of a node.js program that you can deploy
-on IBM's [BlueMix](https://ace.ng.bluemix.net/) PaaS, which is based on
+on IBM's [BlueMix](https://bluemix.net/) PaaS, which is based on
 the [Cloud Foundry open source project](http://cloudfoundry.org/).
 
 Before jumping into the code, make sure you have an IBM ID, by
@@ -17,7 +17,7 @@ here:
 
 * <https://github.com/cloudfoundry/cli/releases>
 
-At the time of this writing, the most recent version is `cf v6.0.0`.
+At the time of this writing, the most recent version is `cf v6.1.1`.
 
 
 
@@ -157,6 +157,9 @@ Use the following command to have the application deployed to BlueMix:
 
     cf push
 
+`cf push` will read the default manifest file `manifest.yml` for some
+default values of options related to your application.
+
 Note that in the documentation below, the string `${random-word}` is a
 place-holder for a random string that BlueMix will create, so that you
 will have a unique hostname running within BlueMix.
@@ -235,8 +238,8 @@ When you're ready to delete the server, use the following command:
 
 For more information on the basics of pushing apps, see the Cloud Foundry docs:
 
-* *[Getting Started](http://docs.cloudfoundry.com/docs/dotcom/getting-started.html)*
-* *[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+* *[Prepare to Deploy an Application](http://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html)*
+* *[Deploy Applications](http://docs.cloudfoundry.org/devguide/deploy-apps/)*
 
 
 
@@ -260,7 +263,7 @@ locally.
 List of file patterns that should **NOT** be uploaded to BlueMix.
 
 See the Cloud Foundry doc
-*[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+*[Prepare to Deploy an Application](http://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html)*
 for more information.
 
 In this case, the contents of the file are:
@@ -301,7 +304,7 @@ The open source license for this sample; in this case, it's licensed under
 This file contains information that's used when you `cf push` the application.
 
 See the Cloud Foundry doc
-*[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+*[Deploying with Application Manifests](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)*
 for more information.
 
 ---
@@ -325,7 +328,7 @@ for more information.
 Used to indicate the command to start the server.
 
 See the Cloud Foundry doc
-*[Key Facts About Application Deployment](http://docs.cloudfoundry.com/docs/using/deploying-apps/)*
+*[Tips for Node.js Applications](http://docs.cloudfoundry.org/buildpacks/node/node-tips.html)*
 and the Heroku doc
 *[Process Types and the Procfile](https://devcenter.heroku.com/articles/procfile)*
 for more information.
