@@ -2,7 +2,7 @@
     "name":             "bluemix-hello-node",
     "dependencies":
         {
-        "cf-env":       "0.1.x",
+        "cfenv":        "0.2.x",
         "express":      "3.5.x"
         }
 }

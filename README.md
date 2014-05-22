@@ -252,7 +252,7 @@ The server written with node.js.  This server was adapted from the
 *[example provided in the node docs](http://nodejs.org/api/synopsis.html)*.
 
 The difference is that the port, binding host, and url are determined
-via the [`cf-env` package](https://www.npmjs.org/package/cf-env).  This will
+via the [`cfenv` package](https://www.npmjs.org/package/cfenv).  This will
 return appropriate values both when running in Cloud Foundry and when running
 locally.
 

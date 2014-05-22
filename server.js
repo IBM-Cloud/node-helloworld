@@ -8,8 +8,8 @@
 // use node's http package
 var http = require("http")
 
-// use the cf-env package
-var cfEnv = require("cf-env")
+// use the cfenv package
+var cfenv = require("cfenv")
 
 // use the express package
 var express = require("express")
@@ -18,8 +18,8 @@ var express = require("express")
 // the name property later
 var pkg = require("./package.json")
 
-// get the core cf-env bits
-var cfCore = cfEnv.getCore()
+// get the core cfenv application environment
+var appEnv = cfenv.getAppEnv()
 
 // create the HTTP server
 var server = http.createServer()
@@ -34,7 +34,7 @@ app.all("*", onRequest)
 server.on("request", app)
 
 // start the server, writing a message once it's actually started
-server.listen(cfCore.port, cfCore.bind, onListen)
+server.listen(appEnv.port, appEnv.bind, onListen)
 
 // all done! server should start listening and responding to requests!
 
@@ -42,7 +42,7 @@ server.listen(cfCore.port, cfCore.bind, onListen)
 // when the server starts, log a message
 //------------------------------------------------------------------------------
 function onListen(request, response) {
-    log("server starting on " + cfCore.url)
+    log("server starting on " + appEnv.url)
 }
 
 //------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ function onRequest(request, response) {
     log("request " + request.method + " " + request.url)
 
     response.writeHead(200, {"Content-Type": "text/plain"})
-    response.end("Hello World\n")
+    response.end("Hello World!\n")
 }
 
 //------------------------------------------------------------------------------
