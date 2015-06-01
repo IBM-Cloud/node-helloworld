@@ -1,5 +1,5 @@
 var express = require("express"),
-    app = express();
+    app = express(),
 
 var port = process.env.VCAP_APP_PORT || 8080;
 
@@ -11,3 +11,5 @@ app.get("/hello", function (request, response) {
 });
 
 app.listen(port);
+
+require("./config")(app);
