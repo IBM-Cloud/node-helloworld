@@ -1,8 +1,10 @@
 {
     "name":             "bluemix-hello-node",
-    "dependencies":
-        {
-        "cfenv":        "0.2.x",
-        "express":      "3.5.x"
-        }
+    "dependencies":{
+        "express":      "~4.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/IBM-Bluemix/bluemix-hello-node.git"
+    }
 }

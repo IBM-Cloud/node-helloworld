@@ -24,6 +24,12 @@ At the time of this writing, the most recent version is `cf v6.1.1`.
 install the code for the sample program
 --------------------------------------------------------------------------------
 
+Click the magical button below to deploy the app.
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
+
+or....
+
 From a command/shell terminal
 * `cd` into the parent directory you want to install the project in
 * `git clone` the project into a child directory
@@ -33,7 +39,7 @@ From a command/shell terminal
 For example:
 
     $ cd Projects
-    $ git clone https://hub.jazz.net/git/pmuellr/bluemix-hello-node
+    $ git clone https://github.com/IBM-Bluemix/bluemix-hello-node
 
         ... git output here ...
 
@@ -49,16 +55,16 @@ run locally
 
 After installing, run the server using
 
-    node server
+    npm start
 
 This should print the following to the console.
 
-    bluemix-hello-node: server starting on http://localhost:3000
+    bluemix-hello-node: server starting on http://localhost:8080
 
 If instead, you get something like the following, someone is already
-using the default port of 3000:
+using the default port of 8080:
 
-    Server running at http://127.0.0.1:3000/
+    Server running at http://127.0.0.1:8080/
 
     events.js:72
         throw er; // Unhandled 'error' event
@@ -70,29 +76,24 @@ using the default port of 3000:
         at Server.listen (net.js:1127:5)
         ...
 
-To use a different port on Mac and Linux, set the PORT environment variable
-and restart the node server
-
-    PORT=3001 node server
-
-On Windows, set the PORT environment variable and restart the node server
-
-    set PORT=3001
-    node server
-
 Once the server is running, test it by visiting the following URL in your
 browser:
 
-    http://localhost:3000/any/url
+    http://localhost:8080/
 
-You should see the same content in the browser for every URL, which will be
+When you visit the above url the content will be Hello World
+
+    Hello World!!!
+
+
+Next, test it by visiting the following URL in your
+browser:
+
+    http://localhost:8080/hello
+
+When you visit the above url the content will be Hello World
 
     Hello World
-
-In the command/shell terminal, you will see the following output:
-
-    bluemix-hello-node: server starting on http://localhost:3000
-    bluemix-hello-node: request GET /any/url
 
 
 
