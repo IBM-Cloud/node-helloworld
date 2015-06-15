@@ -1,5 +1,5 @@
 ---
 applications:
 - name:    hello-node
-  host:    hello-node-${random-word}
+  host:    hello-node-jbs
   memory:  128M
