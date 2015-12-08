@@ -1,5 +1,5 @@
 ---
 applications:
 - name:    hello-node
-  host:    hello-node
+  host:    hello-node-rkie
   memory:  128M
