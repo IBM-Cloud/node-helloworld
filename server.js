@@ -12,4 +12,4 @@ app.get("/hello", function (request, response) {
 
 app.listen(port);
 
-require("cf-deployment-tracker-client").track();
+
