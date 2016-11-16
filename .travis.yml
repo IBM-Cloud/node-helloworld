@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '0.12'
+sudo: required
+dist: precise
+group: edge
+env:
+  global:
+  - CF_APP=hw-travis
+  - CF_API=https://api.ng.bluemix.net
+  - CF_ORGANIZATION=ptitzler_org
+  - CF_SPACE=dev
+  - secure: lyC/Of0jRueSPaKqRSJTtlcLM7Jg3yEtmAEIP3EjwubHrGiF/DbdJmZSUPNfqq9iK8PoNYgcW8T52fmpg+Yv8Kzpx4rbO0viwac9rz1VFJohHGKQdfweep94kP5s0N9+5ETEYZDUSyCDubtR7oqkfbxjusQq+YBmg3ciNGz92sE=
+  - secure: ArksNuizJVuH7+jeN+vobvHUaajHnM04duppfd+KyYTVZL1x0ZUDxQOXvuuDTeH9kDuaPShZ0ZP9C6+LbK1KsddHnj2TBxgpmeQu0fGeYPUF1kxitWHRUoSy1QkJ9pjLchceLW7u2vGI3sVQeBVQh5tHWCqaizJocJDJMLaFgFs=
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: script
+  script: cf-blue-green-travis
+  on:
+    branch: master
+    repo: ptitzler/node-helloworld
+    
