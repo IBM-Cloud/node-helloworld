@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- '0.12'
+sudo: required
+dist: precise
+group: edge
+env:
+  global:
+  - CF_APP=hw-travis
+  - CF_API=https://api.ng.bluemix.net
+  - CF_ORGANIZATION=ptitzler_org
+  - CF_SPACE=dev
+  - secure: ir6fMoLUeQy4BRcdoLBMkaCU7TBO5lNVe06UrmjSiohs55F81tNBLCKXf1mT7Hocvk9Ndl6BqVFMYSva7onCZkWmUScOwhbKO1Z4Mum7MVN/E0ApxclzM3h5Xcgf/IeiXf83bvhjvMfY+mLTGaokezlNxESBchfG89aeNmTwjalfN/Q0R6wMVCvB/r8WtcnDVBSiPYG6HFpDuVxzEa1GnAs3ztAnSCmCM5AH+o0u8tptwuITcBJ0Xlko7ABGwqQWC3yTceh9soyeTTGyYCajrqqHx62JNxLjWB8i6a7kyueDi1SgpqteUeFA3GYiVmSgnG5nMX0PFURNuK3yzNBYn/RdN/zO5Hv7A7bAogtt0WAdqJmQCrnXLlzKUsGRzbozd1oDKM+xS9+uyaqlCsu6CJPrSYwyDr/kUB/VXCfUTP+aQUYSSFnFyMnD1OwhWx793uZkJqlldxOa6Ia/1Tv5n5A7e0HBJIfk2BtuiF1IyYG6zx/XfqQglhcUkw+FbhQOeVuzZ2X0DZOVJGQoEO0QIc4LzSbTl56rgRns8H/s8TpE5+SSHNqQJ455GGlAsTFn6nE+EWFX3oEkekDXGFRiQoa4/1ai+ox4WL8stF9SgnWlk4hZn3UnspWZor+JSfrom3YSdwcNKtXBURqa63GtYRzxhkRxEsaeJxLORwESHQE=
+  - secure: m5uLfnJ75dVJNHnN8HX7PCt3ohzn5EOriiqt3KSjjepgTm9LEQir/XOzFKgAepx+EhI9ktDMKBr710xadyYCCpwbXr1xmQ6EJIAYScCaCLm1eq7b9jaDvHAqHJ6vMm7YTvBy9YX2hVGcxmHRwZQYUU1jMY9BXVnbZtC+i6M2pAm83W027R2gg98wIpcwA5oyyVP0YIvSI5Fl43tF1i0hrG3GADWZPJomxBifncbF8EX4OETyEiIq6xkJlyzZexxYuSkBVshqw58HDucT0CATpu5zhxplvbRLRlEiEgTpCjyCUu4O1vuLg63RA7pgVbwrYfBhQFERhH+RwM02BgLmXJWnE0y+8nr7voO/YCXmLqpNRht0C1ItOXfytNiSChwMUg75JdovbsoM3Pu7zHJiXpvNiB8MqyvZGFAp3sEPQZqFYEuvFjKcE1cySgf2l7xMFKNAU067CsS+wlZaM042uOiaxfMEhJvciHXJ1R5jyt3UQ6BDP2ikzTpp0FgEY71fsDNiFBkz8xAEY9o5UtwuELiZiI8SNaKEG+13D45jHNk/G3Canvnj79wcImkKOEzPvQUDqW5d00P6WjEBaRhcrvtcvFb3gJR2yGGWBpVcGBuBmc5We5fYFpNiQVRYV9N7j3pfjkSp6TibOeJRlRVMX4bzMYpFmIL0UFXxhZmWmSQ=
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: script
+  script: cf-blue-green-travis
+  on:
+    branch: master
+    repo: ptitzler/node-helloworld

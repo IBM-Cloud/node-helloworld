@@ -10,6 +10,10 @@ app.get("/hello", function (request, response) {
     response.end("Hello World!\n");
 });
 
+console.log('Hello world?!');
+console.log('Hello world!');
+console.log('Are you listening?!');
+
 app.listen(port);
 
-require("cf-deployment-tracker-client").track();
+

@@ -1,5 +1,5 @@
 ---
 applications:
-- name:    hello-node
-  host:    hello-node
+- name:    hello-node-travis-pt
+  host:    hello-node-travis-pt
   memory:  128M
