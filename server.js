@@ -10,6 +10,8 @@ app.get("/hello", function (request, response) {
     response.end("Hello World!\n");
 });
 
+console.log('Hello world');
+
 app.listen(port);
 
 
