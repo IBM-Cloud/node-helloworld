@@ -1,15 +1,16 @@
 var express = require("express"),
     app = express();
 
-var port = process.env.VCAP_APP_PORT || 8080;
+var port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/public'));
 
-app.get("/hello", function (request, response) {
-    response.writeHead(200, {"Content-Type": "text/plain"})
-    response.end("Hello World!\n");
+app.get("/sayHello", function (request, response) {
+  var user_name = request.query.user_name;
+  response.end("Hello " + user_name + "!");
 });
 
 app.listen(port);
+console.log("Listening on port ", port);
 
 require("cf-deployment-tracker-client").track();
