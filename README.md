@@ -108,6 +108,8 @@ with, with the `cf api` command:
 
     cf api https://api.ng.bluemix.net
 
+Note: if you have registered to another region, use the corresponding api of region, for example, https://api.au-syd.bluemix.net for Sydney AU.
+
 You should see the following output:
 
     Setting api endpoint to https://api.ng.bluemix.net...
