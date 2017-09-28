@@ -103,12 +103,17 @@ logging into Bluemix
 Now that you have your IBM ID and the `cf` command-line tool (see above),
 you can log into Bluemix and the deploy your app.
 
-First you should tell the `cf` command which environment you want to operate
+1. `bx login -sso -a http://api.ng.bluemix.net` (For people with @ibm.com accounts)
+2. Set target using `bx target --cf`
+3. Check api endpoint using `bluemix api`
+4. Push the project using `bx cf push`
+
+~~First you should tell the `cf` command which environment you want to operate
 with, with the `cf api` command:
 
     cf api https://api.ng.bluemix.net
 
-You should see the following output:
+~~You should see the following output:
 
     Setting api endpoint to https://api.ng.bluemix.net...
     OK
@@ -117,15 +122,15 @@ You should see the following output:
     Not logged in. Use 'cf login' to log in.
     No org or space targeted, use 'cf target -o ORG -s SPACE'
 
-Note that as long as you only ever interact with the Bluemix environment with the
+~~Note that as long as you only ever interact with the Bluemix environment with the
 `cf` command (and not any other CloudFoundry environments), you won't have to
 run the `cf api` command again.
 
-To login to Bluemix, use the following command:
+~~To login to Bluemix, use the following command:
 
     cf login
 
-You will be prompted for your IBM ID userid and password, as in the following
+~~You will be prompted for your IBM ID userid and password, as in the following
 example:
 
     $ cf login
@@ -137,10 +142,10 @@ example:
     Authenticating...
     OK
 
-You will then be prompted to select your 'org' and 'space', just select the defaults,
+~~You will then be prompted to select your 'org' and 'space', just select the defaults,
 which should be your IBM ID userid and `dev`, respectively.
 
-When complete, you should see the following:
+~~When complete, you should see the following:
 
     API endpoint: https://api.ng.bluemix.net (API version: 2.0.0)
     User:         [your IBM ID]
