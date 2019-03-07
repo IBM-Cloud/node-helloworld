@@ -12,13 +12,40 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color:powderblue;">
+
     <div class="container">
-        <h1>Welcome.</h1>
+        <h1> Sign up here!</h1>
+        <br>
+        
         <div id="nameInput" class="input-group-lg center-block helloInput">
-            <p class="lead">What is your name?</p>
-            <input id="user_name" type="text" class="form-control" placeholder="name" aria-describedby="sizing-addon1" value="" />
-        </div>
+            
+            <p class="lead">1. Full name as per NRIC*</p>
+                <input id="user_name" type="text" class="form-control" placeholder="name" aria-describedby="sizing-addon1" value="" />
+                <br>
+                <div id="nameInput" class="input-group-lg center-block helloInput">
+                <br>
+            <p class="lead">2.Telephone number*</p>
+                <input type="tel" name="urstel" placeholder="example:012-3456789" aria-describedby="sizing-addon1" value="" />
+                <br>
+                <br>
+            <p class="lead">3. Email *</p>
+                <input type="email" name="email" class="form-control" placeholder="example: john03@gmail.com" aria-describedby="sizing-addon1" value="" />
+                <br>
+                <div id="nameInput" class="input-group-lg center-block helloInput">
+            <p class="lead">4.Date of Birth*</p>
+                <input type="date" name="bday" placeholder="example:dd/mm/yy" aria-describedby="sizing-addon1" value=""/>
+                <br>
+                <br>
+                <div id="nameInput" class="input-group-lg center-block helloInput">
+            <p class="lead">5.Password*</p>
+                <input type="password" name="psw" class="form-control" placeholder="example:********" aria-describedby="sizing-addon1" value="" />
+                <br>
+                <input type="checkbox" name="tnc" value="terms and condition"> I agree to all the Terms and Conditions 
+                <br>
+                <br>
+                <button type="button" onclick="alert('Submit successful !')">Submit</button>
+            </div>
         <p id="response" class="lead text-center"></p>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
