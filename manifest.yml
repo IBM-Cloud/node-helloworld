@@ -1,5 +1,5 @@
 ---
 applications:
-- name:    signup-node
+- name:    feed-snake
   random-route: true
-  memory:  128M
+  memory:  150M
