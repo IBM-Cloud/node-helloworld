@@ -1,5 +1,6 @@
 /**
- * Created by Rabi on 5-3-2017.
+ * Created by Rabi on 5-3-2017
+ * was edited by group 3.
  */
 var container = document.getElementById("container");
 var buzz=5000;
@@ -41,7 +42,7 @@ point();
 
 var kill = function(){
     if(oggy.classList.contains("boxed")){
-        if(!alert("You have scored "+pcount + " and travelled " +distance+" blocks"))
+        if(!alert("'GAME OVER!' Snacks eaten "+pcount + " and " +distance+" blocks travelled. 'Press OK to RESTART'"))
         window.location.reload();
     };
 };

@@ -1,5 +1,6 @@
 body{
-  background-color: darkslategrey;
+  background: rgb(163,33,250);
+  background: linear-gradient(90deg, rgba(163,33,250,1) 0%, rgba(246,49,227,1) 26%, rgba(255,87,212,1) 33%, rgba(241,255,0,1) 100%);;
 }
 
 .container{
@@ -7,10 +8,10 @@ body{
   height: 500px;
   margin: 30px auto;
   margin-bottom: 10px;
-  background-color: #0c1021;
+  background-color: #F1948A;
 
   padding: 0px;
-  border: solid 10px slategrey;
+  border: solid 10px white;
   border-radius: 10px;
 
   -webkit-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6);
@@ -27,12 +28,12 @@ body{
 }
 
 .boxed{
-  background-color: #fd6401;
-  box-shadow: 0 0 5px #fd6401;
+  background-color: orange;
+  box-shadow: 0 0 5px black;
 }
 
 .point{
-  background-color: #68e768;
+  background-color: black;
 }
 
 .common{
@@ -40,11 +41,11 @@ body{
   width: 200px;
   margin: auto;
   border-radius: 10px;
-  border: solid 5px slategrey;
-  color: dimgray;
+  border: solid 5px white;
+  color: white;
   display: inline-block;
 
-  background-color: #0C1021;
+  background-color: #F1948A;
   -webkit-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6);
   -moz-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6);
   box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6);
