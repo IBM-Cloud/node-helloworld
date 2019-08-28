@@ -1,6 +1,6 @@
 {
-  "name": "bluemix-hello-node",
-  "version": "0.0.0",
+  "name": "bluemix-feed-snake-game",
+  "version": "0.0.8",
   "dependencies": {
     "cf-deployment-tracker-client": "*",
     "commander": "^2.6.0",
@@ -14,6 +14,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Bluemix/bluemix-hello-node.git"
+    "url": "https://github.com/Hawwa11/node-helloworld.git"
   }
 }
